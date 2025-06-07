@@ -1,0 +1,19 @@
+<h2>Course List</h2>
+
+<div *ngIf="courses.length === 0">
+  No courses available.
+</div>
+
+<ul *ngIf="courses.length > 0">
+  <li *ngFor="let course of courses">
+    <strong>{{ course.title }}</strong> <br>
+    <em>{{ course.description }}</em> <br>
+    Duration: {{ course.duration }}
+
+    <button (click)="editCourse(course.id)">Edit</button>
+    <button (click)="deleteCourse(course.id)">Delete</button>
+    
+    <hr>
+  </li>
+</ul>
+

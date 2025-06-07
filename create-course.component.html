@@ -1,0 +1,33 @@
+<h2>Create New Course</h2>
+
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+
+    <label>Title:</label>
+    <input formControlName="title" />
+    <div *ngIf="submitted && courseForm.controls['title'].invalid">
+      <small style="color: red;">Title is required</small>
+    </div>
+
+    
+    <label>Description:</label>
+    <textarea formControlName="description"></textarea>
+    <div *ngIf="submitted && courseForm.controls['description'].invalid">
+      <small style="color: red;">Description is required</small>
+    </div>
+  
+    <label>Duration:</label>
+    <input formControlName="duration" placeholder="e.g., 4 weeks" />
+    <div *ngIf="submitted && courseForm.controls['duration'].invalid">
+      <small style="color: red;">Duration is required</small>
+    </div>
+
+    <button type="submit">Create Course</button>
+</form>
+
+<!-- <div *ngIf="successMessage" style="color: green; margin-top: 10px;">
+    {{ successMessage }}
+  </div> -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  
